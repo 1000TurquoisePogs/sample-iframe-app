@@ -314,8 +314,12 @@ function sendAppRequest() {
 
 window.addEventListener("load", function () {
   console.log('Sample iframe app has loaded');
+  window.parent.postMessage('iframeload', '*');
 }, false);
 
+window.addEventListener('message',function(message) {
+  console.log(`Received message=`,message);
+});
 
 /*
   This program and the accompanying materials are
